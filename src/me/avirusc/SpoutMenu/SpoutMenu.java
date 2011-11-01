@@ -1,6 +1,7 @@
 package me.avirusc.SpoutMenu;
 
 import java.util.logging.Logger;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,16 +23,16 @@ public class SpoutMenu extends JavaPlugin {
 		this.getConfig().set("command9", "/commandname");
 		this.getConfig().set("command10", "/commandname");
 
-		string sProp = this.getconfig().getString("command1","no");
-		string sProp = this.getconfig().getString("command2","no");
-		string sProp = this.getconfig().getString("command3","no");
-		string sProp = this.getconfig().getString("command4","no");
-		string sProp = this.getconfig().getString("command5","no");
-		string sProp = this.getconfig().getString("command6","no");
-		string sProp = this.getconfig().getString("command7","no");
-		string sProp = this.getconfig().getString("command8","no");
-		string sProp = this.getconfig().getString("command9","no");
-		string sProp = this.getconfig().getString("command10","no");
+		String sProp1 = this.getConfig().getString("command1","no");
+		String sProp2 = this.getConfig().getString("command2","no");
+		String sProp3 = this.getConfig().getString("command3","no");
+		String sProp4 = this.getConfig().getString("command4","no");
+		String sProp5 = this.getConfig().getString("command5","no");
+		String sProp6 = this.getConfig().getString("command6","no");
+		String sProp7 = this.getConfig().getString("command7","no");
+		String sProp8 = this.getConfig().getString("command8","no");
+		String sProp9 = this.getConfig().getString("command9","no");
+		String sProp10 = this.getConfig().getString("command10","no");
 		
 		config = getConfig();
 		
