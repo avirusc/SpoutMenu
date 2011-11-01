@@ -12,6 +12,9 @@ public class SpoutMenu extends JavaPlugin {
 	Logger log = Logger.getLogger("Minecraft");	
 	
 	public void onEnable(){
+		
+		config = getConfig();
+		
 		this.getConfig().set("command1", "/commandname");
 		this.getConfig().set("command2", "/commandname");
 		this.getConfig().set("command3", "/commandname");
@@ -33,8 +36,6 @@ public class SpoutMenu extends JavaPlugin {
 		String sProp8 = this.getConfig().getString("command8","no");
 		String sProp9 = this.getConfig().getString("command9","no");
 		String sProp10 = this.getConfig().getString("command10","no");
-		
-		config = getConfig();
 		
 		getServer().getPluginManager().registerEvent(Type.CUSTOM_EVENT, new SMInputListener(), Priority.Normal, this);
 		getServer().getPluginManager().registerEvent(Type.CUSTOM_EVENT, new SMScreenListener(), Priority.Normal, this);
