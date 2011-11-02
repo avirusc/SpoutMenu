@@ -9,8 +9,11 @@ public class SMScreenListener extends ScreenListener {
 	@Override
 	public void onButtonClick(ButtonClickEvent event) {
 		if (event.getButton() instanceof GenericButton && event.getButton().getText().equals("Die")) {				
-			event.getPlayer().sendMessage("You have been killed!");
 			event.getPlayer().chat("/die");
+		}
+		if (event.getButton() instanceof GenericButton && event.getButton().getText().equals("Test")) {				
+			event.getPlayer().sendMessage("You are testing!");
+			event.getPlayer().chat("/list");	
 		}
 	}
 }
