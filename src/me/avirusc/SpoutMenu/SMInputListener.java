@@ -2,7 +2,6 @@ package me.avirusc.SpoutMenu;
 
 import org.getspout.spoutapi.event.input.InputListener;
 import org.getspout.spoutapi.event.input.KeyPressedEvent;
-import org.getspout.spoutapi.gui.Color;
 import org.getspout.spoutapi.gui.GenericButton;
 import org.getspout.spoutapi.gui.GenericLabel;
 import org.getspout.spoutapi.gui.GenericPopup;
@@ -14,28 +13,20 @@ public class SMInputListener extends InputListener{
 	@Override
 	public void onKeyPressedEvent(KeyPressedEvent event) {
 		if (event.getKey() == Keyboard.KEY_M) {
-			event.getPlayer().sendMessage("Spout Menu 0.1 by AVirusC");
 			
 			GenericPopup spmenu = new GenericPopup();
 //Button 1
-			GenericButton button1 = new GenericButton("Die");
-			button1.setColor(new Color(1.0F, 1.0F, 0, 1.0F));
-			button1.setX(20).setY(20);
-			button1.setWidth(100).setHeight(25);
+//			GenericButton button1 = new GenericButton("Die");
+//			button1.setColor(new Color(1.0F, 1.0F, 0, 1.0F));
+//			button1.setX(20).setY(20);
+//			button1.setWidth(125).setHeight(25);
 //Attach Button 1 to popup
-			spmenu.attachWidget(null, button1);
+//			spmenu.attachWidget(null, button1);
 			
-			GenericButton button2 = new GenericButton("Test");
-			button2.setColor(new Color(1.0F, 1.0F, 0, 1.0F));
-			button2.setX(150).setY(20);
-			button2.setWidth(100).setHeight(25);
-//Attach Button 1 to popup
-			spmenu.attachWidget(null, button2);
+			spmenu.attachWidget(null, new GenericButton("Die").setX(20).setY(20).setWidth(125).setHeight(25));
+			spmenu.attachWidget(null, new GenericButton("Test").setX(150).setY(20).setWidth(125).setHeight(25));
+			spmenu.attachWidget(null, new GenericLabel("SpoutMenu 0.1 by AVirusC").setX(130).setY(230).setHeight(600).setWidth(800));
 			
-//		    spmenu.attachWidget(null, new GenericButton("Die")).setX(70).setY(142).setHeight(35).setWidth(100);
-//			spmenu.attachWidget(null, new GenericButton("Test")).setX(70).setY(152).setHeight(35).setWidth(100);	
-			
-			spmenu.attachWidget(null, new GenericLabel("SpoutMenu 0.1 by AVirusC").setX(130).setY(230).setHeight(427).setWidth(240));
 			((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu);
 		}
 	}
