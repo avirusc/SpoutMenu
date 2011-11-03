@@ -1,0 +1,18 @@
+# default config.yml
+#
+# Menu 1
+# command1: "/suicide"
+# desc1: "Suicide"
+# 
+
+command1: /who
+desc1: Who
+
+command2: /give avirusc 1
+desc2: Give
+
+command3: /me shivers
+desc3: Shiver
+
+command4: /me farts
+desc4: Fart
