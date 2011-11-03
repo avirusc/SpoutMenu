@@ -1,18 +1,62 @@
-# default config.yml
-#
-# Menu 1
-# command1: "/suicide"
-# desc1: "Suicide"
-# 
+name1: List Players
+command1: /list
 
-command1: /who
-desc1: Who
+name2: Dispenser
+command2: /give avirusc 23
 
-command2: /give avirusc 1
-desc2: Give
+name3: Three
+command3: /say 3
 
-command3: /me shivers
-desc3: Shiver
+name4: Four
+command4: /say 4
 
-command4: /me farts
-desc4: Fart
+name5: Five
+command5: /say 5
+
+name6: Six
+command6: /say 6
+
+name7: Seven
+command7: /say 7
+
+name8: Eight
+command8: /say 8
+
+name9: Nine
+command9: /say 9
+
+name10: Ten
+command10: /say 10
+
+name11: Eleven
+command11: /say 11
+
+name12: Twelve
+command12: /say 12
+
+name13: Thirteen
+command13: /say 13
+
+name14: Fourteen
+command14: /say 14
+
+name15: Fifteen
+command15: /say 15
+
+name16: Sixteen
+command16: /say 16
+
+name17: Seventeen
+command17: /say 17
+
+name18: Eighteen
+command18: /say 18
+
+name19: Nineteen
+command19: /say 19
+
+name20: Twenty
+command20: /say 20
+
+name21: TwentyOne
+command21: /say 21
