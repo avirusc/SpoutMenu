@@ -1,0 +1,8 @@
+name: SpoutMenu
+version: 0.1
+description: Menu System using SpoutAPI.
+authors: [AVirusC]
+
+main: me.avirusc.SpoutMenu.SpoutMenu
+
+depend: [Spout]
