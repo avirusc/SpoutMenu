@@ -58,6 +58,7 @@ public class SpoutMenu extends JavaPlugin {
 		
 		@Override
 		public void onKeyPressedEvent(KeyPressedEvent event) {
+			if (event.getPlayer().getActiveScreen() != ScreenType.SIGN_SCREEN) {
 			if (event.getPlayer().getActiveScreen() != ScreenType.CHAT_SCREEN) {
 			if (event.getKey() == Keyboard.KEY_M) {
 	
@@ -92,9 +93,9 @@ public class SpoutMenu extends JavaPlugin {
 				//((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu);
 				((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu); 
 			}
+			}
 		}
 	}
-	
 	}
 	public class SMScreenListener extends ScreenListener {
 
