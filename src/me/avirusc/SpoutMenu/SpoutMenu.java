@@ -46,12 +46,12 @@ public class SpoutMenu extends JavaPlugin {
 		this.getConfig().options().copyDefaults(true);
 	        saveConfig();	      
 
-	    log.info("[SpoutMenu] Version 0.1 is enabled.");
+	    log.info("[SpoutMenu] Version 0.2 is enabled.");
 
 	}
 	
 	public void onDisable(){
-		log.info("[SpoutMenu] Version 0.1 is disabled.");
+		log.info("[SpoutMenu] Version 0.2 is disabled.");
 	}
 	
 	public class SMInputListener extends InputListener{
