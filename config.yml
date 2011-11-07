@@ -1,62 +1,42 @@
-name1: List Players
-command1: /list
-
-name2: Dispenser
-command2: /give avirusc 23
-
-name3: Three
-command3: /say 3
-
-name4: Four
-command4: /say 4
-
-name5: Five
-command5: /say 5
-
-name6: Six
-command6: /say 6
-
-name7: Seven
-command7: /say 7
-
-name8: Eight
-command8: /say 8
-
-name9: Nine
-command9: /say 9
-
-name10: Ten
-command10: /say 10
-
-name11: Eleven
-command11: /say 11
-
-name12: Twelve
-command12: /say 12
-
-name13: Thirteen
-command13: /say 13
-
-name14: Fourteen
-command14: /say 14
-
-name15: Fifteen
-command15: /say 15
-
-name16: Sixteen
-command16: /say 16
-
-name17: Seventeen
-command17: /say 17
-
-name18: Eighteen
-command18: /say 18
-
-name19: Nineteen
-command19: /say 19
-
-name20: Twenty
-command20: /say 20
-
-name21: TwentyOne
-command21: /say 21
+name1: Towny Map
+command1: /towny map
+name2: Towny Big Map
+command2: /towny map big
+name3: Town Info
+command3: /town
+name4: Nation Info
+command4: /nation
+name5: Plot Claim
+command5: /plot claim
+name6: Set Shop
+command6: /plot set shop
+name7: Town Spawn
+command7: /town spawn
+name8: Town +1000
+command8: /town deposit 1000
+name9: Town -1000
+command9: /town withdraw 1000
+name10: Nation +1000
+command10: /nation deposit 1000
+name11: Nation -1000
+command11: /nation withdraw 1000
+name12: Town Claim
+command12: /town claim
+name13: Spawn
+command13: /spawn
+name14: Balance
+command14: /balance
+name15: Repair All
+command15: /rep all
+name16: Sell Cobblestone
+command16: /sell cobblestone
+name17: Sell Wood
+command17: /sell wood
+name18: Sell Log
+command18: /sell log
+name19: Sell Dirt
+command19: /sell dirt
+name20: Jobs Help
+command20: /jobs
+name21: LWC Help
+command21: /lwc
