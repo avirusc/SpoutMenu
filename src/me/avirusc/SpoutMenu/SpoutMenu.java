@@ -18,7 +18,9 @@ package me.avirusc.SpoutMenu;
 
 import java.util.logging.Logger;
 
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -46,12 +48,12 @@ public class SpoutMenu extends JavaPlugin {
 		this.getConfig().options().copyDefaults(true);
 	        saveConfig();	      
 
-	    log.info("[SpoutMenu] Version 0.2 is enabled.");
+	    log.info("[SpoutMenu] Version 0.3 is enabled.");
 
 	}
 	
 	public void onDisable(){
-		log.info("[SpoutMenu] Version 0.2 is disabled.");
+		log.info("[SpoutMenu] Version 0.3 is disabled.");
 	}
 	
 	public class SMInputListener extends InputListener{
@@ -60,6 +62,8 @@ public class SpoutMenu extends JavaPlugin {
 		public void onKeyPressedEvent(KeyPressedEvent event) {
 			if (event.getPlayer().getActiveScreen() != ScreenType.SIGN_SCREEN) {
 			if (event.getPlayer().getActiveScreen() != ScreenType.CHAT_SCREEN) {
+			Player player = event.getPlayer();
+			if (player.hasPermission("spoutmenu.allow")) {	
 			if (event.getKey() == Keyboard.KEY_M) {
 	
 				GenericPopup spmenu = new GenericPopup();
@@ -70,16 +74,14 @@ public class SpoutMenu extends JavaPlugin {
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name4")).setX(23).setY(100).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name5")).setX(23).setY(130).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name6")).setX(23).setY(160).setWidth(125).setHeight(21));
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name7")).setX(23).setY(190).setWidth(125).setHeight(21));
-				
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name7")).setX(23).setY(190).setWidth(125).setHeight(21));			
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name8")).setX(153).setY(10).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name9")).setX(153).setY(40).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name10")).setX(153).setY(70).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name11")).setX(153).setY(100).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name12")).setX(153).setY(130).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name13")).setX(153).setY(160).setWidth(125).setHeight(21));
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name14")).setX(153).setY(190).setWidth(125).setHeight(21));
-				
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name14")).setX(153).setY(190).setWidth(125).setHeight(21));			
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name15")).setX(283).setY(10).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name16")).setX(283).setY(40).setWidth(125).setHeight(21));
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name17")).setX(283).setY(70).setWidth(125).setHeight(21));
@@ -89,14 +91,17 @@ public class SpoutMenu extends JavaPlugin {
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name21")).setX(283).setY(190).setWidth(125).setHeight(21));
 				
 				spmenu.attachWidget(null, new GenericLabel("SpoutMenu by AVirusC").setAlign(WidgetAnchor.BOTTOM_CENTER).setAnchor(WidgetAnchor.BOTTOM_CENTER));
-				
-				//((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu);
 				((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu); 
+				((SpoutPlayer) event.getPlayer()).closeActiveWindow();
 			}
+			}else{
+				player.sendMessage(ChatColor.RED + "SpoutMenu wants to open, but you don't have access. :(");		
+			}					
+			}							
+			}				
 			}
-		}
-	}
-	}
+	}	
+	
 	public class SMScreenListener extends ScreenListener {
 
 		@Override

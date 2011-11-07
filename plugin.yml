@@ -1,8 +1,18 @@
 name: SpoutMenu
-version: 0.1
+version: 0.3
 description: Menu System using SpoutAPI.
 authors: [AVirusC]
 
 main: me.avirusc.SpoutMenu.SpoutMenu
 
 depend: [Spout]
+
+permissions:
+     spoutmenu.*:
+          description: Gives access to all SpoutMenu commands.
+          children:
+               spoutmenu.allow: true
+     spoutmenu.allow:
+         description: Allow users to access menu.
+         default: true
+         
