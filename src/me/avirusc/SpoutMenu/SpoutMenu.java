@@ -14,6 +14,7 @@
 //You should have received a copy of the GNU General Public License
 //along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+// Special thanks to skawke and SpoutEssentials for inspiring me to make this.
 // Special thanks to NeatMonster for his custom key code used in SpoutBackpack.
 
 package me.avirusc.SpoutMenu;
