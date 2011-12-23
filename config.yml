@@ -1,44 +1,86 @@
 SpoutMenu:
      Key: M
+
+button1enable: true
 name1: Towny Map
 command1: /towny map
+
+button2enable: true
 name2: Towny Big Map
 command2: /towny map big
+
+button3enable: true
 name3: Town Info
 command3: /town
+
+button4enable: true
 name4: Nation Info
 command4: /nation
+
+button5enable: true
 name5: Plot Claim
 command5: /plot claim
+
+button6enable: true
 name6: Set Shop
 command6: /plot set shop
+
+button7enable: true
 name7: Town Spawn
 command7: /town spawn
+
+button8enable: true
 name8: Town +1000
 command8: /town deposit 1000
+
+button9enable: true
 name9: Town -1000
 command9: /town withdraw 1000
+
+button10enable: true
 name10: Nation +1000
 command10: /nation deposit 1000
+
+button11enable: true
 name11: Nation -1000
 command11: /nation withdraw 1000
+
+button12enable: true
 name12: Town Claim
 command12: /town claim
+
+button13enable: true
 name13: Spawn
 command13: /spawn
+
+button14enable: true
 name14: Balance
 command14: /balance
+
+button15enable: true
 name15: Repair All
 command15: /rep all
+
+button16enable: true
 name16: Sell Cobblestone
 command16: /sell cobblestone
+
+button17enable: true
 name17: Sell Wood
 command17: /sell wood
+
+button18enable: true
 name18: Sell Log
 command18: /sell log
+
+button19enable: true
 name19: Sell Dirt
 command19: /sell dirt
+
+button20enable: true
 name20: Jobs Help
 command20: /jobs
+
+button21enable: true
 name21: LWC Help
 command21: /lwc

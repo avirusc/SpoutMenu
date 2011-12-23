@@ -47,11 +47,11 @@ public class SpoutMenu extends JavaPlugin {
 		getServer().getPluginManager().registerEvent(Type.CUSTOM_EVENT, new SMScreenListener(), Priority.Normal, this);		
 		this.getConfig().options().copyDefaults(true);
 	        saveConfig();	      
-	    log.info("[SpoutMenu] Version 0.5 is enabled.");
+	    log.info("[SpoutMenu] Version 0.6 is enabled.");
 	}
 	
 	public void onDisable(){
-		log.info("[SpoutMenu] Version 0.5 is disabled.");
+		log.info("[SpoutMenu] Version 0.6 is disabled.");
 	}
 	
 	public class SMInputListener extends InputListener{
@@ -63,27 +63,69 @@ public class SpoutMenu extends JavaPlugin {
 			if (player.hasPermission("spoutmenu.allow")) {	
 			if (event.getKey() == getKeyInConfig("SpoutMenu.Key", "M")) {
 				GenericPopup spmenu = new GenericPopup();
+				if (getConfig().getBoolean("button1enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name1")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(10).setWidth(125).setHeight(21));	
+				}
+				if (getConfig().getBoolean("button2enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name2")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(40).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button3enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name3")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(70).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button4enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name4")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(100).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button5enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name5")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(130).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button6enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name6")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(160).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button7enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name7")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(190).setWidth(125).setHeight(21));			
+				}
+				if (getConfig().getBoolean("button8enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name8")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(10).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button9enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name9")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(40).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button10enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name10")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(70).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button11enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name11")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(100).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button12enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name12")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(130).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button13enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name13")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(160).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button14enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name14")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(190).setWidth(125).setHeight(21));			
+				}
+				if (getConfig().getBoolean("button15enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name15")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(10).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button16enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name16")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(40).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button17enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name17")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(70).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button18enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name18")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(100).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button19enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name19")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(130).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button20enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name20")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(160).setWidth(125).setHeight(21));
+				}
+				if (getConfig().getBoolean("button21enable", true) == (true)) {		
 				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name21")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(190).setWidth(125).setHeight(21));		
+				}
 				spmenu.attachWidget(null, new GenericLabel("SpoutMenu by " + ChatColor.RED + "AVirusC").setAlign(WidgetAnchor.BOTTOM_CENTER).setAnchor(WidgetAnchor.BOTTOM_CENTER));
 				((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu); 
 				((SpoutPlayer) event.getPlayer()).closeActiveWindow();
