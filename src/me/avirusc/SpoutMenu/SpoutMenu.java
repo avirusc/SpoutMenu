@@ -23,13 +23,11 @@ import java.util.logging.Logger;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event.Priority;
-import org.bukkit.event.Event.Type;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.getspout.spoutapi.event.input.InputListener;
 import org.getspout.spoutapi.event.input.KeyPressedEvent;
 import org.getspout.spoutapi.event.screen.ButtonClickEvent;
-import org.getspout.spoutapi.event.screen.ScreenListener;
 import org.getspout.spoutapi.gui.GenericButton;
 import org.getspout.spoutapi.gui.GenericLabel;
 import org.getspout.spoutapi.gui.GenericPopup;
@@ -43,8 +41,8 @@ public class SpoutMenu extends JavaPlugin {
 	Logger log = Logger.getLogger("Minecraft");	
 	
 	public void onEnable(){
-		getServer().getPluginManager().registerEvent(Type.CUSTOM_EVENT, new SMInputListener(), Priority.Normal, this);
-		getServer().getPluginManager().registerEvent(Type.CUSTOM_EVENT, new SMScreenListener(), Priority.Normal, this);		
+		getServer().getPluginManager().registerEvents(new SMInputListener(), this);
+		getServer().getPluginManager().registerEvents(new SMScreenListener(), this);		
 		this.getConfig().options().copyDefaults(true);
 	        saveConfig();	      
 	    log.info("[SpoutMenu] Version 0.6 is enabled.");
@@ -54,8 +52,8 @@ public class SpoutMenu extends JavaPlugin {
 		log.info("[SpoutMenu] Version 0.6 is disabled.");
 	}
 	
-	public class SMInputListener extends InputListener{
-		@Override
+	public class SMInputListener implements Listener{
+		@EventHandler
 		public void onKeyPressedEvent(KeyPressedEvent event) {
 			if (event.getPlayer().getActiveScreen() != ScreenType.SIGN_SCREEN) {
 			if (event.getPlayer().getActiveScreen() != ScreenType.CHAT_SCREEN) {
@@ -394,8 +392,8 @@ public class SpoutMenu extends JavaPlugin {
 			return key;
 		}
 	}	
-	public class SMScreenListener extends ScreenListener {
-		@Override
+	public class SMScreenListener implements Listener {
+		@EventHandler
 		public void onButtonClick(ButtonClickEvent event) {
 			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name1"))) {				
 				event.getPlayer().chat(getConfig().getString("command1"));
