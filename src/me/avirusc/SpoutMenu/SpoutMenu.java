@@ -61,70 +61,71 @@ public class SpoutMenu extends JavaPlugin {
 			if (player.hasPermission("spoutmenu.allow")) {	
 			if (event.getKey() == getKeyInConfig("SpoutMenu.Key", "M")) {
 				GenericPopup spmenu = new GenericPopup();
-				if (getConfig().getBoolean("button1enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name1")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(10).setWidth(125).setHeight(21));	
+				spmenu.attachWidget(null, new GenericLabel(getConfig().getString("SpoutMenu.Menu1.Title")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(5).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button1.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button1.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(20).setWidth(125).setHeight(21));	
 				}
-				if (getConfig().getBoolean("button2enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name2")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(40).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button2.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button2.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(50).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button3enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name3")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(70).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button3.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button3.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(80).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button4enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name4")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(100).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button4.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button4.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(110).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button5enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name5")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(130).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button5.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button5.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(140).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button6enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name6")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(160).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button6.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button6.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(170).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button7enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name7")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(190).setWidth(125).setHeight(21));			
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button7.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button7.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(200).setWidth(125).setHeight(21));			
 				}
-				if (getConfig().getBoolean("button8enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name8")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(10).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button8.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button8.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(20).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button9enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name9")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(40).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button9.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button9.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(50).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button10enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name10")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(70).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button10.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button10.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(80).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button11enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name11")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(100).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button11.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button11.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(110).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button12enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name12")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(130).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button12.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button12.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(140).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button13enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name13")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(160).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button13.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button13.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(170).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button14enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name14")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(190).setWidth(125).setHeight(21));			
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button14.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button14.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(200).setWidth(125).setHeight(21));			
 				}
-				if (getConfig().getBoolean("button15enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name15")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(10).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button15.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button15.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(20).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button16enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name16")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(40).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button16.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button16.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(50).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button17enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name17")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(70).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button17.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button17.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(80).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button18enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name18")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(100).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button18.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button18.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(110).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button19enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name19")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(130).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button19.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button19.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(140).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button20enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name20")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(160).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button20.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button20.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(170).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("button21enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("name21")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(190).setWidth(125).setHeight(21));		
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button21.Enable", true) == (true)) {		
+				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button21.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(200).setWidth(125).setHeight(21));		
 				}
-				spmenu.attachWidget(null, new GenericLabel("SpoutMenu by " + ChatColor.RED + "AVirusC").setAlign(WidgetAnchor.BOTTOM_CENTER).setAnchor(WidgetAnchor.BOTTOM_CENTER));
+				spmenu.attachWidget(null, new GenericLabel("SpoutMenu by " + ChatColor.RED + "AVirusC").setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(298).setY(235).setWidth(125).setHeight(21));
 				((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu); 
 				((SpoutPlayer) event.getPlayer()).closeActiveWindow();
 			}
@@ -395,68 +396,68 @@ public class SpoutMenu extends JavaPlugin {
 	public class SMScreenListener implements Listener {
 		@EventHandler
 		public void onButtonClick(ButtonClickEvent event) {
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name1"))) {				
-				event.getPlayer().chat(getConfig().getString("command1"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button1.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button1.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name2"))) {				
-				event.getPlayer().chat(getConfig().getString("command2"));	
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button2.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button2.Command"));	
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name3"))) {				
-				event.getPlayer().chat(getConfig().getString("command3"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button3.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button3.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name4"))) {				
-				event.getPlayer().chat(getConfig().getString("command4"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button4.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button4.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name5"))) {				
-				event.getPlayer().chat(getConfig().getString("command5"));	
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button5.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button5.Command"));	
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name6"))) {				
-				event.getPlayer().chat(getConfig().getString("command6"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button6.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button6.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name7"))) {				
-				event.getPlayer().chat(getConfig().getString("command7"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button7.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button7.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name8"))) {				
-				event.getPlayer().chat(getConfig().getString("command8"));	
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button8.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button8.Command"));	
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name9"))) {				
-				event.getPlayer().chat(getConfig().getString("command9"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button9.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button9.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name10"))) {				
-				event.getPlayer().chat(getConfig().getString("command10"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button10.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button10.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name11"))) {				
-				event.getPlayer().chat(getConfig().getString("command11"));	
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button11.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button11.Command"));	
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name12"))) {				
-				event.getPlayer().chat(getConfig().getString("command12"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button12.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button12.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name13"))) {				
-				event.getPlayer().chat(getConfig().getString("command13"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button13.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button13.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name14"))) {				
-				event.getPlayer().chat(getConfig().getString("command14"));	
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button14.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button14.Command"));	
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name15"))) {				
-				event.getPlayer().chat(getConfig().getString("command15"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button15.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button15.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name16"))) {				
-				event.getPlayer().chat(getConfig().getString("command16"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button16.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button16.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name17"))) {				
-				event.getPlayer().chat(getConfig().getString("command17"));	
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button17.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button17.Command"));	
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name18"))) {				
-				event.getPlayer().chat(getConfig().getString("command18"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button18.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button18.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name19"))) {				
-				event.getPlayer().chat(getConfig().getString("command19"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button19.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button19.Command"));
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name20"))) {				
-				event.getPlayer().chat(getConfig().getString("command20"));	
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button20.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button20.Command"));	
 			}
-			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("name21"))) {				
-				event.getPlayer().chat(getConfig().getString("command21"));
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button21.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button21.Command"));
 			}
 		}	
 	}

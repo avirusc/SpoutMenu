@@ -15,3 +15,4 @@ permissions:
      spoutmenu.allow:
           description: Allow users to access menu.
           default: true
+     
