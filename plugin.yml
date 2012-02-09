@@ -13,6 +13,5 @@ permissions:
           children:
                spoutmenu.allow: true
      spoutmenu.allow:
-         description: Allow users to access menu.
-         default: true
-         
+          description: Allow users to access menu.
+          default: true
