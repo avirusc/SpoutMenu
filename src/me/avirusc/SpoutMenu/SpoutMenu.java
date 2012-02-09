@@ -45,11 +45,11 @@ public class SpoutMenu extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new SMScreenListener(), this);		
 		this.getConfig().options().copyDefaults(true);
 	        saveConfig();	      
-	    log.info("[SpoutMenu] Version 0.6 is enabled.");
+	    log.info("[SpoutMenu] Version 0.7 is enabled.");
 	}
 	
 	public void onDisable(){
-		log.info("[SpoutMenu] Version 0.6 is disabled.");
+		log.info("[SpoutMenu] Version 0.7 is disabled.");
 	}
 	
 	public class SMInputListener implements Listener{
