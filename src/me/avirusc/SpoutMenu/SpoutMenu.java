@@ -28,7 +28,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.getspout.spoutapi.event.input.KeyPressedEvent;
 import org.getspout.spoutapi.event.screen.ButtonClickEvent;
+import org.getspout.spoutapi.gui.ContainerType;
 import org.getspout.spoutapi.gui.GenericButton;
+import org.getspout.spoutapi.gui.GenericContainer;
 import org.getspout.spoutapi.gui.GenericLabel;
 import org.getspout.spoutapi.gui.GenericPopup;
 import org.getspout.spoutapi.gui.ScreenType;
@@ -42,7 +44,7 @@ public class SpoutMenu extends JavaPlugin {
 	
 	public void onEnable(){
 		getServer().getPluginManager().registerEvents(new SMInputListener(), this);
-		getServer().getPluginManager().registerEvents(new SMScreenListener(), this);		
+		getServer().getPluginManager().registerEvents(new SMScreenListener(), this);
 		this.getConfig().options().copyDefaults(true);
 	        saveConfig();	      
 	    log.info("[SpoutMenu] Version 0.7 is enabled.");
@@ -59,73 +61,165 @@ public class SpoutMenu extends JavaPlugin {
 			if (event.getPlayer().getActiveScreen() != ScreenType.CHAT_SCREEN) {
 			Player player = event.getPlayer();
 			if (player.hasPermission("spoutmenu.allow")) {	
-			if (event.getKey() == getKeyInConfig("SpoutMenu.Key", "M")) {
-				GenericPopup spmenu = new GenericPopup();
-				spmenu.attachWidget(null, new GenericLabel(getConfig().getString("SpoutMenu.Menu1.Title")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(5).setWidth(125).setHeight(21));
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button1.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button1.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(20).setWidth(125).setHeight(21));	
+			if (event.getKey() == getKeyInConfig("SpoutMenu.Key", "M")) {												
+				GenericPopup spmenu = new GenericPopup();				
+
+				// Generate Containers
+				GenericContainer smContainer = new GenericContainer(); 
+				smContainer.setLayout(ContainerType.HORIZONTAL).setAnchor(WidgetAnchor.TOP_LEFT).setWidth(700).setHeight(700); 
+				GenericContainer smContainerL = new GenericContainer(); 
+				smContainerL.setLayout(ContainerType.VERTICAL).setAlign(WidgetAnchor.CENTER_LEFT).setHeight(225).setWidth(225).setMargin(16,0,34,30);
+				GenericContainer smContainerC = new GenericContainer();
+				smContainerC.setLayout(ContainerType.VERTICAL).setAlign(WidgetAnchor.CENTER_CENTER).setHeight(225).setWidth(225).setMargin(16,0,34,0);
+				GenericContainer smContainerR = new GenericContainer();
+				smContainerR.setLayout(ContainerType.VERTICAL).setAlign(WidgetAnchor.CENTER_RIGHT).setHeight(225).setWidth(225).setMargin(16,30,34,0);
+				GenericContainer smContainerT = new GenericContainer();
+				smContainerT.setLayout(ContainerType.VERTICAL).setAnchor(WidgetAnchor.TOP_LEFT);
+				smContainerT.addChild(new GenericLabel(getConfig().getString("SpoutMenu.Menu1.Title")).setWidth(2).setHeight(2).setMargin(6,0,0,31));
+				GenericContainer smContainerP = new GenericContainer();
+				smContainerP.setLayout(ContainerType.VERTICAL).setAnchor(WidgetAnchor.TOP_LEFT).setX(322).setY(236);
+				smContainerP.addChild(new GenericLabel("SpoutMenu by " + ChatColor.RED + "AVirusC").setMargin(2,2,2,2)); 
+				GenericContainer smContainerN = new GenericContainer();
+				smContainerN.setLayout(ContainerType.HORIZONTAL).setAnchor(WidgetAnchor.TOP_LEFT).setX(130).setY(227).setWidth(180).setHeight(20).setMargin(2,2,2,2);
+				
+				//Navigation buttons
+				if (player.hasPermission("spoutmenu.menu2")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("1")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button2.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button2.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(50).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button3.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button3.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(80).setWidth(125).setHeight(21));
+				if (player.hasPermission("spoutmenu.menu2")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("2")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button4.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button4.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(110).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button5.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button5.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(140).setWidth(125).setHeight(21));
+				if (player.hasPermission("spoutmenu.menu3")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu3.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("3")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button6.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button6.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(170).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button7.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button7.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(23).setY(200).setWidth(125).setHeight(21));			
+				if (player.hasPermission("spoutmenu.menu4")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu4.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("4")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button8.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button8.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(20).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button9.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button9.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(50).setWidth(125).setHeight(21));
+				if (player.hasPermission("spoutmenu.menu5")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu5.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("5")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button10.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button10.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(80).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button11.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button11.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(110).setWidth(125).setHeight(21));
+				if (player.hasPermission("spoutmenu.menu6")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu6.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("6")).setFixed(true);	
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button12.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button12.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(140).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button13.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button13.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(170).setWidth(125).setHeight(21));
+				if (player.hasPermission("spoutmenu.menu7")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu7.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("7")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button14.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button14.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(153).setY(200).setWidth(125).setHeight(21));			
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button15.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button15.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(20).setWidth(125).setHeight(21));
+				if (player.hasPermission("spoutmenu.menu8")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu8.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("8")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button16.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button16.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(50).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button17.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button17.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(80).setWidth(125).setHeight(21));
+				if (player.hasPermission("spoutmenu.menu9")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu9.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("9")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button18.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button18.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(110).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button19.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button19.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(140).setWidth(125).setHeight(21));
+				if (player.hasPermission("spoutmenu.menu10")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu10.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("10")).setFixed(true);
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button20.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button20.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(170).setWidth(125).setHeight(21));
 				}
-				if (getConfig().getBoolean("SpoutMenu.Menu1.Button21.Enable", true) == (true)) {		
-				spmenu.attachWidget(null, new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button21.Name")).setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(283).setY(200).setWidth(125).setHeight(21));		
+
+				//Menu 1 Buttons
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button1.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button1.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));	
+				}				
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button2.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button2.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}				
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button3.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button3.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}				
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button4.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button4.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
 				}
-				spmenu.attachWidget(null, new GenericLabel("SpoutMenu by " + ChatColor.RED + "AVirusC").setAlign(WidgetAnchor.TOP_LEFT).setAnchor(WidgetAnchor.TOP_LEFT).setX(298).setY(235).setWidth(125).setHeight(21));
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button5.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button5.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button6.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button6.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button7.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button7.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));			
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button8.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button8.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button9.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button9.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button10.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button10.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button11.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button11.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button12.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button12.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button13.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button13.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button14.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button14.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));			
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button15.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button15.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button16.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button16.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button17.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button17.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button18.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button18.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button19.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button19.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button20.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button20.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button21.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button21.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button22.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button22.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button23.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button23.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button24.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button24.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button25.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button25.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button26.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button26.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu1.Button27.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu1.Button27.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}				
+				smContainer.addChildren(smContainerL, smContainerC, smContainerR);
+				spmenu.attachWidgets(null, smContainerT, smContainer, smContainerP, smContainerN);
 				((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu); 
 				((SpoutPlayer) event.getPlayer()).closeActiveWindow();
 			}
@@ -133,8 +227,10 @@ public class SpoutMenu extends JavaPlugin {
 				player.sendMessage(ChatColor.RED + "SpoutMenu wants to open, but you don't have access. :(");		
 			}					
 			}							
-		}				
-	}
+			}
+		}			
+	
+
 		private Keyboard getKeyInConfig(String configProperty, String configDefault) {
 			String keyInConfig = getConfig().getString(configProperty, configDefault);
 			saveConfig();
@@ -459,6 +555,198 @@ public class SpoutMenu extends JavaPlugin {
 			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button21.Name"))) {				
 				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button21.Command"));
 			}
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button22.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button22.Command"));
+			}
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button23.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button23.Command"));
+			}
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button24.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button24.Command"));
+			}
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button25.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button25.Command"));
+			}
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button26.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button26.Command"));
+			}
+			if (event.getButton() instanceof GenericButton && event.getButton().getText().equals(getConfig().getString("SpoutMenu.Menu1.Button27.Name"))) {				
+				event.getPlayer().chat(getConfig().getString("SpoutMenu.Menu1.Button27.Command"));
+			}
+		    if (event.getButton() instanceof GenericButton && event.getButton().getText().equals("1")) {				
+		    	Player player = event.getPlayer();
+		    	player.sendMessage(ChatColor.RED + "You are already on Menu 1!");	
+		    }
+
+		    if (event.getButton() instanceof GenericButton && event.getButton().getText().equals("2")) {
+		    	((SpoutPlayer) event.getPlayer()).closeActiveWindow();
+		    	Player player = event.getPlayer();											
+				GenericPopup spmenu2 = new GenericPopup();				
+
+				// Generate Containers
+				GenericContainer smContainer = new GenericContainer(); 
+				smContainer.setLayout(ContainerType.HORIZONTAL).setAnchor(WidgetAnchor.TOP_LEFT).setWidth(700).setHeight(700); 
+				GenericContainer smContainerL = new GenericContainer(); 
+				smContainerL.setLayout(ContainerType.VERTICAL).setAlign(WidgetAnchor.CENTER_LEFT).setHeight(225).setWidth(225).setMargin(16,0,34,30);
+				GenericContainer smContainerC = new GenericContainer();
+				smContainerC.setLayout(ContainerType.VERTICAL).setAlign(WidgetAnchor.CENTER_CENTER).setHeight(225).setWidth(225).setMargin(16,0,34,0);
+				GenericContainer smContainerR = new GenericContainer();
+				smContainerR.setLayout(ContainerType.VERTICAL).setAlign(WidgetAnchor.CENTER_RIGHT).setHeight(225).setWidth(225).setMargin(16,30,34,0);
+				GenericContainer smContainerT = new GenericContainer();
+				smContainerT.setLayout(ContainerType.VERTICAL).setAnchor(WidgetAnchor.TOP_LEFT);
+				smContainerT.addChild(new GenericLabel(getConfig().getString("SpoutMenu.Menu2.Title")).setWidth(2).setHeight(2).setMargin(6,0,0,31));
+				GenericContainer smContainerP = new GenericContainer();
+				smContainerP.setLayout(ContainerType.VERTICAL).setAnchor(WidgetAnchor.TOP_LEFT).setX(322).setY(236);
+				smContainerP.addChild(new GenericLabel("SpoutMenu by " + ChatColor.RED + "AVirusC").setMargin(2,2,2,2)); 
+				GenericContainer smContainerN = new GenericContainer();
+				smContainerN.setLayout(ContainerType.HORIZONTAL).setAnchor(WidgetAnchor.TOP_LEFT).setX(130).setY(227).setWidth(180).setHeight(20).setMargin(2,2,2,2);
+				
+				//Navigation buttons
+				if (player.hasPermission("spoutmenu.menu2")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("1")).setFixed(true);
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu2")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("2")).setFixed(true);
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu3")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu3.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("3")).setFixed(true);
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu4")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu4.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("4")).setFixed(true);
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu5")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu5.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("5")).setFixed(true);
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu6")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu6.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("6")).setFixed(true);	
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu7")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu7.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("7")).setFixed(true);
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu8")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu8.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("8")).setFixed(true);
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu9")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu9.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("9")).setFixed(true);
+				}
+				}
+				if (player.hasPermission("spoutmenu.menu10")) {
+				if (getConfig().getBoolean("SpoutMenu.Menu10.Enabled", true) == (true)) {
+				smContainerN.addChild(new GenericButton("10")).setFixed(true);
+				}
+				}
+
+				//Menu 1 Buttons
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button1.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button1.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));	
+				}				
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button2.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button2.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}				
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button3.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button3.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}				
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button4.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button4.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button5.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button5.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button6.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button6.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button7.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button7.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));			
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button8.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button8.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button9.Enabled", true) == (true)) {		
+				smContainerL.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button9.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button10.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button10.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button11.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button11.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button12.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button12.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button13.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button13.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button14.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button14.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));			
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button15.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button15.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button16.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button16.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button17.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button17.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button18.Enabled", true) == (true)) {		
+				smContainerC.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button18.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button19.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button19.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button20.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button20.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button21.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button21.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button22.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button22.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button23.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button23.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button24.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button24.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button25.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button25.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button26.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button26.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}
+				if (getConfig().getBoolean("SpoutMenu.Menu2.Button27.Enabled", true) == (true)) {		
+				smContainerR.addChild(new GenericButton(getConfig().getString("SpoutMenu.Menu2.Button27.Name")).setWidth(125).setHeight(21).setFixed(true).setMargin(1,1,1,1));		
+				}				
+				smContainer.addChildren(smContainerL, smContainerC, smContainerR);
+				spmenu2.attachWidgets(null, smContainerT, smContainer, smContainerP, smContainerN);
+				((SpoutPlayer) event.getPlayer()).getMainScreen().attachPopupScreen(spmenu2); 
+				smContainer.updateLayout();
+				smContainerL.updateLayout();
+				smContainerC.updateLayout();
+				smContainerR.updateLayout();
+				smContainerN.updateLayout();
+				//((SpoutPlayer) event.getPlayer()).closeActiveWindow();
+			}
+			}
 		}	
 	}
-}

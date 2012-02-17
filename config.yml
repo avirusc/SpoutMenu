@@ -90,3 +90,142 @@ SpoutMenu:
       Enabled: true
       Name: Fisherman
       Command: /jobs join fisherman
+    Button22:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button23:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button24:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button25:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button26:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button27:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+  Menu2:
+    Title: Menu2
+    Enabled: true
+    Button1:
+      Enabled: true
+      Name: Towny Map
+      Command: /towny map big
+    Button2:
+      Enabled: true
+      Name: Town Spawn
+      Command: /town spawn
+    Button2:
+      Enabled: true
+      Name: Town Spawn
+      Command: /town spawn
+    Button3:
+      Enabled: true
+      Name: Server Spawn
+      Command: /spawn
+    Button4:
+      Enabled: true
+      Name: Nation Info
+      Command: /nation
+    Button5:
+      Enabled: true
+      Name: Town Info
+      Command: /town
+    Button6:
+      Enabled: true
+      Name: Town Claim
+      Command: /town claim      
+    Button7:
+      Enabled: true
+      Name: Plot Claim
+      Command: /plot claim
+    Button8:
+      Enabled: true
+      Name: Repair Hand
+      Command: /rep
+    Button9:
+      Enabled: true
+      Name: Repair All
+      Command: /rep all
+    Button10:
+      Enabled: true
+      Name: Worth
+      Command: /worth
+    Button11:
+      Enabled: true
+      Name: Buy Backpack
+      Command: /backpack buy
+    Button12:
+      Enabled: true
+      Name: Upgrade Backpack
+      Command: /backpack upgrade     
+    Button13:
+      Enabled: true
+      Name: Job Info
+      Command: /jobs stats     
+    Button14:
+      Enabled: true
+      Name: Man Hunter
+      Command: /jobs join manhunter     
+    Button15:
+      Enabled: true
+      Name: Blacksmith
+      Command: /jobs join blacksmith  
+    Button16:
+      Enabled: true
+      Name: Miner
+      Command: /jobs join miner     
+    Button17:
+      Enabled: true
+      Name: Hunter
+      Command: /jobs join hunter          
+    Button18:
+      Enabled: true
+      Name: Farmer
+      Command: /jobs join farmer
+    Button19:
+      Enabled: true
+      Name: Monster Hunter
+      Command: /jobs join monsterhunter
+    Button20:
+      Enabled: true
+      Name: Wood Cutter
+      Command: /jobs join woodcutter
+    Button21:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button22:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button23:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button24:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button25:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button26:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
+    Button27:
+      Enabled: true
+      Name: Fisherman
+      Command: /jobs join fisherman
