@@ -1367,10 +1367,8 @@ public class SpoutMenu extends JavaPlugin {
 	setLayout(ContainerType.HORIZONTAL).setAnchor(WidgetAnchor.TOP_LEFT).setX(130).setY(227).setWidth(180).setHeight(20).setMargin(2,2,2,2);
 	
 	//Navigation buttons
-	if (player.hasPermission("spoutmenu.menu2")) {
 	if (getConfig().getBoolean("SpoutMenu.Menu2.Enabled", true) == (true)) {
 	this.addChild(new GenericButton("1")).setFixed(true);
-	}
 	}
 	if (player.hasPermission("spoutmenu.menu2")) {
 	if (getConfig().getBoolean("SpoutMenu.Menu2.Enabled", true) == (true)) {
