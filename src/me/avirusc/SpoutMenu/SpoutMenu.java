@@ -46,11 +46,11 @@ public class SpoutMenu extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new SMScreenListener(), this);
 		this.getConfig().options().copyDefaults(true);
 	        saveConfig();	      
-	    log.info("[SpoutMenu] Version 0.7 is enabled.");
+	    log.info("[SpoutMenu] Version 0.8 is enabled.");
 	}
 	
 	public void onDisable(){
-		log.info("[SpoutMenu] Version 0.7 is disabled.");
+		log.info("[SpoutMenu] Version 0.8 is disabled.");
 	}
 	
 	public class SMInputListener implements Listener{
@@ -58,17 +58,16 @@ public class SpoutMenu extends JavaPlugin {
 		
 		@EventHandler
 		public void onKeyPressedEvent(KeyPressedEvent event) {
-			
-			if (event.getPlayer().getActiveScreen() != ScreenType.SIGN_SCREEN) {
-			if (event.getPlayer().getActiveScreen() != ScreenType.CHAT_SCREEN) {
 			SpoutPlayer player = (SpoutPlayer) event.getPlayer();
-			if (player.hasPermission("spoutmenu.allow")) {	
-			if (event.getKey() == getKeyInConfig("SpoutMenu.Key", "M")) {				
+			if (event.getPlayer().getActiveScreen() != ScreenType.SIGN_SCREEN) {
+			if (event.getPlayer().getActiveScreen() != ScreenType.CHAT_SCREEN) {				
+			if (event.getKey() == getKeyInConfig("SpoutMenu.Key", "M")) {	
+				if (player.hasPermission("spoutmenu.allow")) {	
 				player.getMainScreen().attachPopupScreen(new SpoutMenuGUI(plugin, player));
-				player.closeActiveWindow();
-			}
+				player.closeActiveWindow();			
 			}else{
 				player.sendMessage(ChatColor.RED + "SpoutMenu wants to open, but you don't have access. :(");		
+			}
 			}
 			}
 			}
@@ -1367,8 +1366,10 @@ public class SpoutMenu extends JavaPlugin {
 	setLayout(ContainerType.HORIZONTAL).setAnchor(WidgetAnchor.TOP_LEFT).setX(130).setY(227).setWidth(180).setHeight(20).setMargin(2,2,2,2);
 	
 	//Navigation buttons
+	if (player.hasPermission("spoutmenu.menu2")) {
 	if (getConfig().getBoolean("SpoutMenu.Menu2.Enabled", true) == (true)) {
 	this.addChild(new GenericButton("1")).setFixed(true);
+	}
 	}
 	if (player.hasPermission("spoutmenu.menu2")) {
 	if (getConfig().getBoolean("SpoutMenu.Menu2.Enabled", true) == (true)) {

@@ -1,5 +1,5 @@
 name: SpoutMenu
-version: 0.7
+version: 0.8
 description: Menu System using SpoutAPI.
 authors: [AVirusC]
 
@@ -23,31 +23,21 @@ permissions:
                spoutmenu.menu10: true
      spoutmenu.allow:
           description: Allow users to access menu.
-          default: true
      spoutmenu.menu2:
           description: Allow users see and to access menu 2.
-          default: true
      spoutmenu.menu3:
           description: Allow users to see and to access menu 3.
-          default: true
      spoutmenu.menu4:
           description: Allow users to see and to access menu 4.
-          default: true
      spoutmenu.menu5:
           description: Allow users to see and to access menu 5.
-          default: true
      spoutmenu.menu6:
           description: Allow users to see and to access menu 6.
-          default: true
      spoutmenu.menu7:
           description: Allow users to see and to access menu 7.
-          default: true
      spoutmenu.menu8:
           description: Allow users to see and to access menu 8.
-          default: true
      spoutmenu.menu9:
           description: Allow users to see and to access menu 9.
-          default: true
      spoutmenu.menu10:
           description: Allow users to see and to access menu 10.
-          default: true
