@@ -44,13 +44,12 @@ public class SpoutMenu extends JavaPlugin {
     public void onEnable(){
 		getServer().getPluginManager().registerEvents(new SMInputListener(), this);
 		getServer().getPluginManager().registerEvents(new SMScreenListener(), this);
-		this.getConfig().options().copyDefaults(true);
-	        saveConfig();	      
-	    log.info("[SpoutMenu] Version 0.8 is enabled.");
+		this.getConfig().options().copyDefaults(true);	      
+	    log.info("[SpoutMenu] Version 0.9 is enabled.");
 	}
 	
 	public void onDisable(){
-		log.info("[SpoutMenu] Version 0.8 is disabled.");
+		log.info("[SpoutMenu] Version 0.9 is disabled.");
 	}
 	
 	public class SMInputListener implements Listener{
@@ -64,7 +63,7 @@ public class SpoutMenu extends JavaPlugin {
 			if (event.getKey() == getKeyInConfig("SpoutMenu.Key", "M")) {	
 				if (player.hasPermission("spoutmenu.allow")) {	
 				player.getMainScreen().attachPopupScreen(new SpoutMenuGUI(plugin, player));
-				player.closeActiveWindow();			
+				player.closeActiveWindow();	
 			}else{
 				player.sendMessage(ChatColor.RED + "SpoutMenu wants to open, but you don't have access. :(");		
 			}
